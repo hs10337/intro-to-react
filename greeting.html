@@ -1,11 +1,48 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>My First React App</title>
-  </head>
+<head>
+  <title>My First React App</title>
+</head>
 
-  <body>
-    <p>Hello world!</p>
-  </body>
+<body>
+  <div id="app"></div>
+  <div id='root'></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/16.1.0/umd/react.development.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.1.0/umd/react-dom.development.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
+  <script type="text/babel">
+  class Greeting extends React.Component {
+    constructor(props){
+      super(props);
+      this.state={
+        message: "Hi"
+      }
+    }
+    render() {
+      return (
+        <div>
+          <h1>{this.state.message} {this.props.name}!</h1>
+
+        </div>
+      );
+    }
+  }
+
+  ReactDOM.render(
+    <Greeting name="Bloc Student"/>, document.getElementById('app')
+  );
+
+  function tick() {
+  const element = (
+    <div>
+      <h2>It is {new Date().toLocaleTimeString()}.</h2>
+    </div>
+  );
+  ReactDOM.render(element, document.getElementById('root'));
+}
+
+setInterval(tick, 1000);
+  </script>
+</body>
 
 </html>
